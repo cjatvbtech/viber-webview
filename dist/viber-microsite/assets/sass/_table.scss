@@ -1,0 +1,37 @@
+.table {
+  thead {
+    th {
+      color: $lightgreen;
+      font-size: 12px;
+      font-style: normal;
+      border-top: 0;
+      border-bottom: 1px solid $lightestgray;
+      border-right: 1px solid $lightestgray;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  td {
+    border-right: 1px solid $lightestgray;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &.table-striped {
+    tbody {
+      tr:hover {
+        background-color: rgba($lightgreen, 0.2) !important;
+      }
+      tr:nth-of-type(odd) {
+        background-color: rgba(0,0,0,0.01);
+      }
+    }
+  }
+
+  
+}

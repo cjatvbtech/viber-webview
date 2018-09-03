@@ -1,0 +1,73 @@
+<div class="content-wrap" id="NominatePin">
+
+    <div class="inner-wrap">
+      <h1>Help us keep your account secure</h1>
+      <p>Set your 4 digit Chat PIN</p>
+      <form [formGroup]="nominateChatPinForm" novalidate autocomplete="off">
+        <div class="form-group p-relative pin-code-wrap" [ngClass]="{'has-error': (pin.invalid && pin.touched && pin.dirty) || isSubmitted}">
+          <label for="pin" class="d-block info-label">
+            <i class="fas fa-info-circle"></i>
+            Your Chat PIN will be use to verify your identity when making a transaction
+          </label>
+          <div class="form-control-chatpin p-relative">
+            <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event, 'pin_')" (blur)="onBlur('pin_')" (focus)="onFocus($event, 'pin_')" formControlName="pin" mask="9999" />
+            <toggle-password>
+              <div class="row row-xs">
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="pin_one" tabindex="1" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 1 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="pin_two" tabindex="2" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 2 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="pin_three" tabindex="3" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 3 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="pin_four" tabindex="4" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 4 }" />
+                </div>
+              </div>
+            </toggle-password>
+            <div *ngIf="(pin.invalid && pin.touched && pin.dirty) || isSubmitted">
+              <small *ngIf="pin.errors?.required" class="text-danger">Please nominate a PIN number</small>
+            </div>              
+          </div>
+        </div>
+  
+        <div class="form-group p-relative pin-code-wrap" [ngClass]="{'has-error': (repin.invalid && repin.touched && repin.dirty) || isSubmitted}">
+          <label for="repin" class="d-block text-center">Confirm Chat PIN</label>
+          <div class="form-control-chatpin p-relative">
+            <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event, 'repin_')" (blur)="onBlur('repin_')" (focus)="onFocus($event, 'repin_')" formControlName="repin" mask="9999" />
+            <toggle-password>
+              <div class="row row-xs">
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="repin_one" tabindex="1" #togglePasswordMask [ngClass]="{ 'pin_focused' : repin_focus == 1 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="repin_two" tabindex="2" #togglePasswordMask [ngClass]="{ 'pin_focused' : repin_focus == 2 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="repin_three" tabindex="3" #togglePasswordMask [ngClass]="{ 'pin_focused' : repin_focus == 3 }" />
+                </div>
+                <div class="col-3">
+                  <input type="password" class="form-control pin-indicator text-center" formControlName="repin_four" tabindex="4" #togglePasswordMask [ngClass]="{ 'pin_focused' : repin_focus == 4 }" />
+                </div>
+              </div>
+            </toggle-password>
+            <div *ngIf="(repin.invalid && repin.touched && repin.dirty) || isSubmitted">
+              <small *ngIf="repin.errors?.required" class="text-danger">Re-type your PIN</small>
+              <small *ngIf="repin.errors?.MatchPin" class="text-danger">Please re-type your PIN correctly</small>
+            </div>
+
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+  </div>
+  
+  <div class="button-container">
+      <div class="btns">
+        <button [disabled]="nominateChatPinForm.invalid" type="button" class="btn btn-primary btn-block">CONFIRM</button>
+      </div>
+    </div>

@@ -1,0 +1,151 @@
+.list-view {
+	border: 1px solid #f0f0f8;
+	margin-bottom: 20px;
+
+	&:not(.no-border) {
+		@include box-shadow(0 2px 3px 1px rgba(0,0,0,0.03));
+	}
+
+	.lv-header {
+		background-color: #fbfbfc;
+		padding: 12px 150px 12px 20px;
+		position: relative;
+		border-bottom: 1px solid #f0f0f8;
+
+		h3 {
+			font-size: 16px;
+			color: #101013;
+			margin: 0 auto;
+		}
+
+		.lv-links {
+			margin: 0;
+			position: absolute;
+			right: 5px;
+			top: 8px;
+
+			li {
+				position: relative;
+				padding: 0 10px;
+				vertical-align: text-top;
+
+				a { display: inline-block; }
+
+				&:not(:last-child):after {
+					content: " ";
+					display: block;
+					height: 16px;
+					width: 1px;
+					position: absolute;
+					background-color: #e5e5f0;
+					top: 50%;
+					margin-top: -8px;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.lv-content {
+		padding: 25px 30px 10px;
+
+		@media (max-width: 991px) {
+			padding: 18px 20px 10px;
+		}
+
+		@media (max-width: 480px) {
+			padding: 12px 15px 10px;
+		}
+
+		&.grid {
+			padding: 20px 25px;
+
+			@media (max-width: 991px) {
+				padding: 12px 20px;
+			}
+
+			@media (max-width: 480px) {
+				padding: 12px 15px;
+			}
+		}
+	}
+
+	.lv-footer {
+		border-top: 1px solid #e5e5f0;
+	}
+
+	.lv-item {
+		position: relative;
+		padding: 20px;
+
+		@media (max-width: 480px) {
+			padding: 10px;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	a.lv-item {
+		display: block;
+	}
+
+	&.lv-accounts {
+		.lv-item {
+			border-bottom: 1px solid #f0f0f8;
+			vertical-align: text-top;
+
+			&:not(.box-item):last-child {
+				border-bottom: 0;
+			}
+
+			&.lv-item-no-data {
+				border: 1px solid #f8b614;
+				background-color: rgba(248, 182, 20, 0.2);
+				padding-left: 20px;
+			}
+		}
+
+		&.w-hover-effect {
+			.lv-item:hover, .lv-item.active {
+				background-color: rgba(248, 182, 20, 0.1);
+			}
+		}
+
+		&.min-height-280 {
+			min-height: 280px;
+		}
+
+		&.w-panel {
+			position: relative;
+			padding-right: 45px;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		.lv-panel {
+			position: absolute;
+			right: 0;
+			top: 0; bottom: 0;
+			width: 39px;
+			border: 1px solid #e0e0eb;
+			padding: 2px 0;
+
+			a {
+				display: block;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				text-align: center;
+				margin: 0 auto;
+
+				&:hover {
+					background-color: #e0e0eb;
+				}
+			}
+		}
+	}
+}

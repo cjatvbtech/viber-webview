@@ -1,0 +1,24 @@
+.sprite {
+  background-image: url('assets/images/sprite.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+
+  &.default-avatar {
+    position: absolute;
+    top: 50%;
+    margin-top: -21px;
+    left: 50%;
+    margin-left: -21px;
+    z-index: 1;
+    @include bg-pos(42px, 42px, 0 0);
+  }
+
+  &.excla-red {
+    @include bg-pos(27px, 27px, -46px 0);
+  }
+
+  &.camera-ico {
+    @include bg-pos(27px, 34px, -73px 0);
+    line-height: 27px;
+  }
+}

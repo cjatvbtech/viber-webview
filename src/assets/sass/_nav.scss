@@ -1,0 +1,36 @@
+#main-nav {
+	display: block;
+	position: relative;
+
+	.inner-container {
+		padding: 20px;
+	}
+}
+
+.links {
+	display: block;
+	list-style: none;
+	padding: 0;
+	text-align: right;
+
+	.link-item {
+		display: inline-block;
+
+		a:not(.btn) {
+			display: block;
+			padding: 5px 12px;
+			font-size: 16px;
+		}
+	}
+
+	.btn-access {
+		display: inline-block;
+		margin-left: 12px;
+	}
+
+	.h-divider {
+		display: inline-block;
+		border-right: 1px solid $lightgray;
+		margin: 0 10px;
+	}
+}

@@ -1,0 +1,21 @@
+.modal-header, .modal-body, .modal-footer {
+  padding: 15px 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  color: $lightgreen;
+}
+
+
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 720px;
+  }
+}

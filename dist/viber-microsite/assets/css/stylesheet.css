@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'Qrurl';
+  src: url('../fonts/Qrurl.eot');
+  src: url('../fonts/Qrurl.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Qrurl.woff2') format('woff2'),
+      url('../fonts/Qrurl.woff') format('woff'),
+      url('../fonts/Qrurl.ttf') format('truetype'),
+      url('../fonts/Qrurl.svg#Qrurl') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'AlphanumericQR';
+    src: url('../fonts/AlphanumericQR.eot');
+    src: url('../fonts/AlphanumericQR.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AlphanumericQR.woff2') format('woff2'),
+        url('../fonts/AlphanumericQR.woff') format('woff'),
+        url('../fonts/AlphanumericQR.ttf') format('truetype'),
+        url('../fonts/AlphanumericQR.svg#AlphanumericQR') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 
+$gray: #767676;
+$lightergray: #bfbfbf;
+$lightestgray: #ececec;
+$lightblue: #4a90e2;
+$green: #007c26;
+$lightgreen: #00d7a7;
+$white: #fff; 
+*/
+
+.table td, .table th {
+  border-top: 0;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.main-container {
+  padding: 30px 0;
+}
+
+.ticket-container {
+  width: 920px;
+  margin: 20px auto;
+  border: 1px solid #bfbfbf;
+}
+
+.ticket-container > div {
+  padding: 10px;
+}
+
+.ticket-barcode {
+  width: 240px;
+  vertical-align: middle !important;
+  text-align: center;
+}
+
+.b-right {
+  border-right: 1px solid #bfbfbf;
+}
+
+.ticket-barcode .barcode {
+  font-size: 10px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+.field-label {
+  color: #767676;
+  font-size: 10px;
+  display: block;
+}
+
+.field-value {
+  font-size: #000000;
+  font-size: 14px;
+}
+
+.ticket-details .org {
+  font-size: 14px;
+  color: #007c26;
+  text-transform: uppercase;
+}
+
+.ticket-details .title {
+  font-size: 12px;
+  color: #007c26;
+}
+
+.ticket-details .location {
+  color: #3e3e3e;
+}
+
+.ticket-details .date {
+  color: #000000;
+}
+
+.ticket-refno,
+.ticket-orderno,
+.ticket-paging {
+  color: #000000;
+  font-size: 10px;
+  font-weight: bold;
+  height: 25px;
+  padding: 5px 0 !important;
+}
+
+
+.ticket-details p {
+  font-size: 12px;
+  margin-bottom: 5px;
+  line-height: 1.25em;
+  font-weight: bold;
+}
+
+.ticket-details p:last-child {
+  margin-bottom: 0;
+}

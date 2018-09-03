@@ -1,0 +1,542 @@
+.form-container {
+    position: relative;
+	max-width: 600px;
+	display: block;
+	margin: 0 auto;
+
+    .btn[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        max-width: 290px;
+    }
+
+}
+
+.form-horizontal {
+    @media (min-width: 768px) {
+        .control-label {
+            line-height: 2.25em;
+        }
+    }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+
+    > label {
+        font-size: 12px;
+        margin-bottom: 0.5em;
+    }
+
+    .asterisk {
+        color: #ea1441 !important;
+    }
+
+    .err-message {}
+
+    .side-note {
+        font-size: 12px;
+        color: $lightgray;
+        display: block;
+        text-align: right;
+        line-height: 2em;
+    }
+
+    &.has-feedback {
+        position: relative;
+
+        .form-control-feedback {
+            bottom: 8px;
+            right: 6px;
+            top: auto;
+            display: block;
+        }
+
+        .form-horizontal & {
+            .form-control-feedback {
+                right: 21px;
+            }
+        }
+    }
+}
+
+.form-control {
+  font-size: 14px;
+  color: $gray;
+    border: 1px solid $lightestgray;
+  background-color: $white;
+	box-shadow: none !important;
+  padding: 0 15px;
+  height: $form-ctrl-height;
+  z-index: 2;
+
+  @include transition(200ms all ease-out);
+  @include border-radius(6px);
+
+  .input-group &.last-addon {
+      border-left: 1px solid transparent;
+
+      &:focus + .input-group-addon {
+          background-color: $lightgreen;
+          border-bottom: 1px solid $lightgreen;
+      }
+   }
+
+  &:focus {
+    border-color: $lightgreen;
+  }
+
+  .has-error & {
+      border-color: $red;
+
+      &:focus {
+          border-color: $red;
+      }
+
+      & ~ .err-message {
+          @include opacity(1);
+      }
+  }
+
+  &.md-input {
+      height: 40px;
+      font-size: 13px;
+  }
+
+  &.sm-input {
+      font-size: 11px;
+      height: 32px;
+  }
+
+  &.sm-input, &.md-input {
+      & ~ .input-group-addon {
+          vertical-align: middle;
+          padding-top: 0;
+          padding-bottom: 0;
+      }
+  }
+
+  &.blue-ctrl {
+      color: #fff;
+      background-color: $blue;
+      border-color: $blue;
+      
+      @include input-placeholder($white);
+
+      & ~ .input-group-addon {
+          background-color: $blue;
+          border: 0;
+          @include border-radius-right(5px);
+      }
+
+      &:focus {
+          border-right-color: $blue;
+      }
+  }
+
+}
+
+a.form-control {
+    line-height: $form-ctrl-height;
+}
+
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+
+    padding: 0 45px 0 20px;
+    @include box-shadow(none !important);
+
+    background: $white url('assets/images/chevron-down.png') no-repeat right center;
+    border: 1px solid $lightestgray;
+
+    .input-group-addon:first-child & {
+        border-right: 1px solid #dddde4;
+        padding-left: 0;
+    }
+
+    &:not([size]):not([multiple]) {
+        height: $form-ctrl-height;
+        line-height: $form-ctrl-height;
+    }
+
+    & option:disabled { color: $lightgray; }
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+textarea.form-control {
+    padding: 15px;
+    min-height: 65px;
+    max-height: 150px;
+    max-width: 100%;
+}
+
+/*
+ * Checkbox and Radio
+ */
+.checkbox, .radio {
+    label {
+        font-size: 14px;
+        position: relative;
+        line-height: 1.6em;
+        cursor: pointer;
+        &:not(.single-control) {
+            padding-left: 35px;
+            padding-top: 2px;
+        }
+    }
+
+    input {
+        top: 0;
+        left: 0;
+        margin-left: 0 !important;
+        z-index: 1;
+        cursor: pointer;
+        @include opacity(0);
+        margin-top: 0;
+        position: absolute;
+    }
+
+    .input-helper {
+        vertical-align: text-top;
+
+        &:before, &:after {
+            @include transition(all 200ms ease-out);
+            @include backface-visibility(hidden);
+            position: absolute;
+            content: "";
+        }
+
+        &:before {
+            left: 0;
+            border: 1px solid $lightergray;
+        }
+    }
+
+    &.disabled {
+        @include opacity(0.6);
+    }
+}
+
+.checkbox {
+    label {
+        line-height: 22px;
+        padding-left: 30px;
+    }
+
+    &:not(.slide-switch) input {
+        width: 22px;
+        height: 22px;
+
+        &:checked + .input-helper {
+            &:before {
+                /* @include scale(0); */
+            }
+
+            &:after {
+                @include scale-rotate(1, -50deg);
+                @include opacity(1);
+            }
+        }
+    }
+
+    &:not(.slide-switch) .input-helper {
+        &:before {
+            background-color: #f0f0f8;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            border: 0;
+            border-bottom: 1px solid $lightestgray;
+        }
+
+        &:after {
+            @include opacity(0);
+            @include scale-rotate(0, 80deg);
+            width: 14px;
+            height: 8px;
+            border-bottom: 4px solid $lightgreen;
+            border-left: 4px solid $lightgreen;
+            border-bottom-left-radius: 2px;
+            left: 4px;
+            top: 6px;
+        }
+    }
+
+    &.slide-switch {
+        label {
+            padding-left: 0;
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+        }
+
+        input {
+            width: 50px;
+            height: 30px;
+
+            &:checked + .input-helper {
+                &:before {
+                    background-color: $lightgreen;
+                }
+
+                &:after {
+                    background-color: $white;
+                    left: 23px;
+                }
+            }
+        }
+
+        .input-helper {
+            &:before {
+                background-color: $lightestgray;
+                top: 0;
+                width: 50px;
+                height: 30px;
+                border: 0;
+
+                border: 1px solid $lightestgray;
+                @include border-radius(20px);
+            }
+
+            &:after {
+                background-color: $white;
+                width: 24px;
+                height: 24px;
+                left: 4px;
+                top: 3px;
+                border: 1px solid $lightestgray;
+                @include border-radius(50%);
+            }
+        }
+    }
+}
+
+.radio {
+    label {
+        color: $lightergray;
+    }
+    input {
+        position: absolute;
+        width: 23px;
+        height: 23px;
+
+        &:checked + .input-helper {
+            &:after {
+                @include scale(1);
+            }
+        }
+    }
+
+    .input-helper {
+        &:before {
+            top: 1px;
+            width: 23px;
+            height: 23px;
+            background-color: $white;
+
+            @include border-radius(50%);
+            /* @include box-shadow(inset 2px 1px 5px 0px rgba(0,0,0,0.15)); */
+        }
+
+        &:after {
+            width: 11px;
+            height: 11px;
+            background: $lightgreen;
+            top: 7px;
+            left: 6px;
+
+            @include border-radius(50%);
+            @include scale(0);
+            
+        }
+    }
+}
+
+.checkbox-inline,
+.radio-inline {
+    vertical-align: top;
+    margin-top: 0;
+    padding-left: 0;
+
+    label:not(:last-child) { margin-right: 50px; }
+}
+
+.radio-styled {
+    display: block;
+    height: 50px;
+
+    label {
+        display: block;
+        text-align: center;
+        height: 100%;
+        &:not(.single-control) {
+            padding-left: 0;
+        }
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+    }
+
+    .input-helper {
+        &:before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-left: 0;
+            border-color: $lightergray;
+
+            @include border-radius(0);
+
+            // @include border-radius-right(30px);
+            // @include border-radius-right(30px);
+        }
+        &:after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            @include scale(1);
+            @include border-radius(0);
+            @include opacity(0);
+        }
+    }
+
+    .r-label {
+        font-size: 16px;
+        line-height: 50px;
+        position: relative;
+        z-index: 99;
+    }
+
+    input {
+        &:checked {
+            & + .input-helper:after {
+                @include opacity(1);
+            }
+
+            & ~ .r-label {
+                color: $white;
+            }
+        }
+    }
+
+    &.radio-left-side {
+        .input-helper {
+            &:before {
+                border-left: 1px solid $lightergray;
+                @include border-radius-left(30px);
+            }
+            &:after {
+                @include border-radius-left(30px);
+            }
+        }
+    }
+
+    &.radio-right-side {
+        .input-helper {
+            &:before {
+                @include border-radius-right(30px);
+            }
+            &:after {
+                @include border-radius-right(30px);
+            }
+        }
+    }
+}
+
+/*
+ * Validation
+ */
+@mixin checkbox-fgline-validation($color) {
+    .checkbox .input-helper {
+        &:before {
+            border-color: $color;
+        }
+
+        &:after {
+            border-bottom-color: $color;
+            border-left-color: $color;
+        }
+    }
+
+    .fg-line:after {
+        background: $color;
+    }
+
+}
+$m-red: #ea1441;
+$m-green: #a2c31c;
+.has-error {
+    @include checkbox-fgline-validation($m-red);
+}
+
+.has-success {
+    @include checkbox-fgline-validation($m-green);
+}
+
+input[type="email"], input[type="text"], input[type="password"] {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $gray;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $gray;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $gray;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $gray;
+    }
+}
+
+
+/* Custom Select CTRL */
+.custom-select-ctrl {
+    position: relative;
+    .form-control {
+        padding-right: 10px;
+        > div {
+            height: $form-ctrl-height;
+            > div {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .list-view {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        margin: 0 auto;
+        display: none;
+        max-height: 250px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        @include box-shadow(0 3px 6px 2px rgba(0,0,0,0.05));
+    }
+
+    &.active {
+        .form-control {
+            border-color: #f8b614;
+            background-color: #fbfbfc;
+        }
+
+        .list-view {
+            display: block;
+        }
+    }
+}

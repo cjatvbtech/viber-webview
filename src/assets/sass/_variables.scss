@@ -1,0 +1,90 @@
+/* Colors */
+/* Primary */
+$gray: #767676;
+$lightblue: #4a90e2;
+$green: #007c26;
+$lightgreen: #00d7a7;
+$white: #fff;
+
+/* Secondary */
+$darkgreen: #005f22;
+$pastelgreen: #79c996;
+$blue: #0072CE;
+$darkblue: #002D72;
+$lighterblue: #73abed;
+$darkgray: #383838;
+$lightgray: #767676;
+$lightergray: #bfbfbf;
+$lightestgray: #ececec;
+$silver: #f8f9fa;
+$yellow: #ffcc33;
+$black: #0e0e0e;
+$red: #ff0000;
+$orange: #ff8d36;
+$crisporange: #e67824;
+
+$form-ctrl-height: 40px;
+$btn-height: 50px;
+$btn-font-size: 16px;
+$btn-bg-color: $darkblue;
+$btn-hover-bgcolor: $blue;
+
+$btn-md-height: 45px;
+$btn-sm-height: 36px;
+$btn-xs-height: 30px;
+
+$menu-nav-width: 300px;
+$menu-bg-color: $black;
+$menu-itemlink-color: $white;
+
+$rubikregular: 'Rubik-Regular', sans-serif;
+$rubikmedium: 'Rubik-Medium', sans-serif;
+$rubikbold: 'Rubik-Bold', sans-serif;
+
+$font-face: $rubikregular; /* 'Montserrat', sans-serif; */
+$font-size: 14px;
+$font-color: $gray;
+$alink-color: $green;
+$font-color-a-hover: $lightgreen;
+
+$p-fsize: 14px;
+
+$header-height: 40px;
+$top-nav-height: 40px;
+$footer-height: 379px;
+$hero-height: 430px;
+
+$nav-width: 320px;
+
+/* HEADER */
+$header-bg-color: $blue;
+
+
+$colors: (
+	darkgreen: $darkgreen,
+	pastelgreen: $pastelgreen,
+	green: $green,
+	lightgreen: $lightgreen,
+	gray: $gray,
+	lightblue: $lightblue,
+	white: $white,
+	blue: $blue,
+	darkblue: $darkblue,
+	lighterblue: $lighterblue,
+	darkgray: $darkgray,
+	lightergray: $lightergray,
+	lightestgray: $lightestgray,
+	lightgray: $lightgray,
+	yellow: $yellow,
+	black: $black,
+	red: $red,
+	orange: $orange,
+);
+
+$fa-font-path : '../node_modules/font-awesome/fonts';
+
+/* PROFILE PAGE */ 
+
+$sidebar-width: 360px;
+$gutter: 20px;
+$avatar-pix-width: 110px;

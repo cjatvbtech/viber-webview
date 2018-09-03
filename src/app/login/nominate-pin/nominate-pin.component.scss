@@ -1,0 +1,24 @@
+@import '../../../assets/sass/variables';
+@import '../../../assets/sass/mixins';
+
+#NominatePin {
+    .info-label {
+        position: relative;
+        display: block;
+        max-width: 280px;
+        padding-left: 20px;
+        margin-left: auto;
+        margin-right: auto;
+
+        > i {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            font-size: 14px;
+        }
+    }
+
+    .pin_focused {
+        border-color: $blue !important;
+    }
+}

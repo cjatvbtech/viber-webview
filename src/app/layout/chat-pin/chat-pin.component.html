@@ -1,0 +1,21 @@
+<form autocomplete="off" novalidate>
+  <div class="form-group p-relative pin-code-wrap">
+    <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" name="pin" pattern="[\d]{6}" />
+
+    <div class="row row-xs">
+      <div class="col-3">
+        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_one" tabindex="1" #togglePasswordMask />
+      </div>
+      <div class="col-3">
+        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_two" tabindex="2" #togglePasswordMask />
+      </div>
+      <div class="col-3">
+        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_three" tabindex="3" #togglePasswordMask />
+      </div>
+      <div class="col-3">
+        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_four" tabindex="4" #togglePasswordMask />
+      </div>
+    </div>
+      
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<div class="content-wrap" id="NominatePin">
+
+  <div class="inner-wrap">
+    <h1>We need to make sure it's you.</h1>
+    <p>Please enter the one-time password we sent to your mobile number (ending 8639) registered with us.</p>
+    <form [formGroup]="validateOTPForm" novalidate autocomplete="off">
+
+      <div class="form-group p-relative pin-code-wrap">
+        <div class="form-control-chatpin">
+          <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" formControlName="pin" mask="999999" />
+      
+          <div class="row row-xs">
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_one" tabindex="1" #togglePasswordMask />
+            </div>
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_two" tabindex="2" #togglePasswordMask />
+            </div>
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_three" tabindex="3" #togglePasswordMask />
+            </div>
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_four" tabindex="4" #togglePasswordMask />
+            </div>
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_five" tabindex="5" #togglePasswordMask />
+            </div>
+            <div class="col-2">
+              <input type="password" class="form-control pin-indicator text-center" formControlName="pin_six" tabindex="6" #togglePasswordMask />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
