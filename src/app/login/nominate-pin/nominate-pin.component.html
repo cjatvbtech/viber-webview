@@ -55,7 +55,7 @@
             </toggle-password>
             <div *ngIf="(repin.invalid && repin.touched && repin.dirty) || isSubmitted">
               <small *ngIf="repin.errors?.required" class="text-danger">Re-type your PIN</small>
-              <small *ngIf="repin.errors?.MatchPin" class="text-danger">Please re-type your PIN correctly</small>
+              <small *ngIf="repin.errors?.MatchPin" class="text-danger">The 4 Chat PIN set did not match</small>
             </div>
 
           </div>

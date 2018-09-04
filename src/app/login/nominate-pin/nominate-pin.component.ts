@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PinValidator } from '../../shared/validator/pin-validator';
 import {DataService} from '../../core/services/data.service';
+import { Title } from '@angular/platform-browser';
 
 import $ from 'jquery';
 
@@ -20,7 +21,8 @@ export class NominatePinComponent implements OnInit, OnDestroy {
 
   constructor(
     private _fB: FormBuilder,
-    private dS: DataService
+    private dS: DataService,
+    private titleService: Title
   ) {
     this.nominateChatPinForm = this._fB.group({
       pin: ['', [Validators.required, Validators.minLength(4)]],
@@ -90,6 +92,7 @@ export class NominatePinComponent implements OnInit, OnDestroy {
     //     this.disabledBtn = this.nominateChatPinForm.valid;
     //   });
     //console.log(window.navigator.userAgent);
+    this.titleService.setTitle('Nominate PIN');
     if (window.navigator.userAgent.match(/iPhone/i)) {
 			$('input.pin-filler').css({ left: '-9999px' });
     }
