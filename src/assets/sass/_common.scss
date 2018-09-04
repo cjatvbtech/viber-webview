@@ -63,6 +63,7 @@ ol {
 	height: calc(100% - 70px);
 	padding: 20px 0;
 	@media (max-width: 360px) {
+		height: calc(100% - 60px);
 		padding: 10px 0;
 	}
 
