@@ -379,11 +379,7 @@
     }
 
     &.full-width {
-        padding: 20px 0 0;
-    
-        @media (max-width: 360px) {
-            padding: 10px 0 0;
-        }
+        padding: 10px 0 0;
         .btns {
             padding: 0 !important;
 
