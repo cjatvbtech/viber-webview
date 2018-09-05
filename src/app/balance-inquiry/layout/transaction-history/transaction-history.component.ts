@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-transaction-history',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: Title,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  viewTransactionDetail() {
+    this.router.navigate(['/balance-inquiry/transaction-detail/YH7637G640098']);
   }
 
 }

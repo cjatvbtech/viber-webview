@@ -67,7 +67,7 @@
   </div>
   
   <div class="button-container">
-      <div class="btns">
-        <button [disabled]="nominateChatPinForm.invalid" type="button" class="btn btn-primary btn-block">CONFIRM</button>
-      </div>
+    <div class="btns">
+      <button [disabled]="nominateChatPinForm.invalid" type="button" class="btn btn-primary btn-block" (click)="savePin()">CONFIRM</button>
     </div>
+  </div>

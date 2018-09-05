@@ -1,21 +1,32 @@
-<form autocomplete="off" novalidate>
-  <div class="form-group p-relative pin-code-wrap">
-    <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" name="pin" pattern="[\d]{6}" />
-
-    <div class="row row-xs">
-      <div class="col-3">
-        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_one" tabindex="1" #togglePasswordMask />
-      </div>
-      <div class="col-3">
-        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_two" tabindex="2" #togglePasswordMask />
-      </div>
-      <div class="col-3">
-        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_three" tabindex="3" #togglePasswordMask />
-      </div>
-      <div class="col-3">
-        <input type="password" class="form-control pin-indicator text-center p-l-5 p-r-5" name="pin_four" tabindex="4" #togglePasswordMask />
-      </div>
+<form autocomplete="off" novalidate id="ChatPin">
+  
+  <div class="form-group p-relative pin-code-wrap" [ngClass]="{'has-error': (pin.invalid && pin.touched && pin.dirty) || isSubmitted}">
+    <label for="pin" class="d-block info-label">
+      <i class="fas fa-info-circle"></i>
+      Your Chat PIN will be use to verify your identity when making a transaction
+    </label>
+    <div class="form-control-chatpin p-relative">
+      <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event, 'pin_')" (blur)="onBlur('pin_')" (focus)="onFocus($event, 'pin_')" formControlName="pin" mask="9999" />
+      <toggle-password>
+        <div class="row row-xs">
+          <div class="col-3">
+            <input type="password" class="form-control pin-indicator text-center" formControlName="pin_one" tabindex="1" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 1 }" />
+          </div>
+          <div class="col-3">
+            <input type="password" class="form-control pin-indicator text-center" formControlName="pin_two" tabindex="2" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 2 }" />
+          </div>
+          <div class="col-3">
+            <input type="password" class="form-control pin-indicator text-center" formControlName="pin_three" tabindex="3" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 3 }" />
+          </div>
+          <div class="col-3">
+            <input type="password" class="form-control pin-indicator text-center" formControlName="pin_four" tabindex="4" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 4 }" />
+          </div>
+        </div>
+      </toggle-password>
+      <div *ngIf="(pin.invalid && pin.touched && pin.dirty) || isSubmitted">
+        <small *ngIf="pin.errors?.required" class="text-danger">Please nominate a PIN number</small>
+      </div>              
     </div>
-      
   </div>
+
 </form>

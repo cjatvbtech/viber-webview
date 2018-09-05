@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-select-account',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: Title,
+    private router: Router
+  ) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.title.setTitle('SIGN IN YOUR POB ACCOUNT');
+  }
+
+  onSelect($event) {
+    this.router.navigate(['balance-inquiry/account/HF97GY643809100987'])
+  }
 }

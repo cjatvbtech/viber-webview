@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: Title,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+
   }
 
 }

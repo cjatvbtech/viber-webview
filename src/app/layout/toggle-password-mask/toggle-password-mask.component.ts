@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input, Directive, ContentChild, ContentChildren, QueryList, AfterViewInit } from '@angular/core';
-import { Mask } from '@fagnerlima/ng-mask';
 
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/debounceTime';
@@ -26,7 +25,6 @@ export class TogglePasswordMaskComponent implements OnInit, AfterViewInit, OnDes
   isAcct: boolean;
   hasKeyin: boolean;
   ctrlPlaceholder: string;
-  readonly maskAccntNum: Mask = new Mask('000000000000');
 
   @ContentChildren("togglePasswordMask") inputControls: QueryList<any>;
   @ContentChild("accountNumberCtrl") inputAcct: any;

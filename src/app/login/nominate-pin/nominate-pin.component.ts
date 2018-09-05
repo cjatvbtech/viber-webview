@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PinValidator } from '../../shared/validator/pin-validator';
-import {DataService} from '../../core/services/data.service';
+import { DataService } from '../../core/services/data.service';
 import { Title } from '@angular/platform-browser';
 
 import $ from 'jquery';
@@ -132,6 +132,10 @@ export class NominatePinComponent implements OnInit, OnDestroy {
     if (_cLength <= 4) {
       this[prefix + 'focus'] = _cLength;
     }
+  }
+
+  savePin() {
+    window.close();
   }
 
 }
