@@ -20,8 +20,7 @@ import { TogglePasswordMaskComponent } from './layout/toggle-password-mask/toggl
     NotFoundComponent,
     ErrorPageComponent,
     OneTimePasswordComponent,
-    ChatPinComponent,
-    TogglePasswordMaskComponent
+    ChatPinComponent
   ],
   imports: [
     BrowserModule,
