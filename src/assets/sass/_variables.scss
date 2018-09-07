@@ -16,6 +16,7 @@ $darkgray: #383838;
 $lightgray: #767676;
 $lightergray: #bfbfbf;
 $lightestgray: #ececec;
+$blueishgray: #EFF2F6;
 $silver: #f8f9fa;
 $yellow: #ffcc33;
 $black: #0e0e0e;
@@ -23,7 +24,14 @@ $red: #ff0000;
 $orange: #ff8d36;
 $crisporange: #e67824;
 
+$form-ctrl-fontsize: 14px;
+$form-ctrl-fontcolor: $gray;
 $form-ctrl-height: 50px;
+$form-ctrl-bgcolor: $blueishgray;
+$form-ctrl-bordercolor: $blueishgray;
+$form-ctrl-borderstroke: 3px;
+$form-ctrl-border-focuscolor: $blue;
+
 $btn-height: 50px;
 $btn-font-size: 16px;
 $btn-bg-color: $darkblue;
@@ -44,7 +52,8 @@ $rubikbold: 'Rubik-Bold', sans-serif;
 $font-face: $rubikregular; /* 'Montserrat', sans-serif; */
 $font-size: 14px;
 $font-color: $gray;
-$alink-color: $green;
+$alink-color: $blue;
+$alink-hover-color: $blue;
 $font-color-a-hover: $lightgreen;
 
 $p-fsize: 14px;

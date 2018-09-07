@@ -1,27 +1,26 @@
-<form [formGroup]="loginForm" id="login">
+<form [formGroup]="loginForm" id="login" autocomplete="off" novalidate>
   <div class="content-wrap">
 
     <div class="inner-wrap">
       <h1>Please provide your login details</h1>
       
-      <div *ngIf="invalidLogin" class="text-center c-red">
-        Invalid username or password. Try again.
-      </div>
-      
       <div class="form-group" [ngClass]="{'has-error': (username.invalid && (username.touched && username.dirty)) || invalidLogin}">
-        <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" name="userame" formControlName="username"/>
+        <input class="form-control" type="text" id="username" name="userame" formControlName="username" placeholder="Username" autocomplete="off" />
         <div *ngIf="(username.invalid && (username.touched && username.dirty)) || invalidLogin">
           <small *ngIf="username.errors?.required" class="text-danger">Required Field</small>
         </div>
       </div>
       <div class="form-group" [ngClass]="{'has-error': (password.invalid && (password.touched && password.dirty)) || invalidLogin}">
-        <label for="password">Password</label>
-        <input class="form-control" type="password" id="password" name="password" formControlName="password"/>
+        <input class="form-control" type="password" id="password" name="password" formControlName="password" placeholder="Password" autocomplete="off" />
         <div *ngIf="(password.invalid && (password.touched && password.dirty)) || invalidLogin">
           <small *ngIf="password.errors?.required" class="text-danger">Required Field</small>
         </div>
       </div>
+      
+      <p *ngIf="invalidLogin" class="text-center c-red">
+        You entered an incorrect username or password.
+      </p>
+
       <div class="form-group text-center">
         <a href="#">Forgot your username or password?</a>
       </div>
@@ -32,7 +31,7 @@
 
   <div class="button-container">
     <div class="btns">
-      <button type="submit" class="btn btn-block" (click)="login()">LOG IN</button>
+      <button type="submit" [disabled]="_loginForm.invalid" class="btn btn-block" (click)="login()">LOG IN</button>
     </div>
   </div>
 

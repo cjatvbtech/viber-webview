@@ -62,10 +62,10 @@
 }
 
 .form-control {
-  font-size: 14px;
-  color: $gray;
-    border: 1px solid $lightestgray;
-  background-color: $white;
+  font-size: $form-ctrl-fontsize;
+	color: $form-ctrl-fontcolor;
+  border: $form-ctrl-borderstroke solid $form-ctrl-bordercolor;
+  background-color: $form-ctrl-bgcolor;
 	box-shadow: none !important;
   padding: 0 15px;
   height: $form-ctrl-height;
@@ -84,7 +84,7 @@
    }
 
   &:focus {
-    border-color: $lightgreen;
+    border-color: $form-ctrl-border-focuscolor;
   }
 
   .has-error & {

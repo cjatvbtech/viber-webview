@@ -38,10 +38,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loginForm.setValue({ username: '', password: '' });
   }
 
   login() {
     this.invalidLogin = false;
+    
     let url = this.route.snapshot.queryParams.next;
     
     if (this.loginForm.valid) {
@@ -57,6 +59,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  get _loginForm() {
+    return this.loginForm;
   }
 
   ngOnDestroy(): void {
