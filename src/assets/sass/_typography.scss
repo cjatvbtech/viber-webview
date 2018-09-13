@@ -39,11 +39,10 @@ h1 {
 }
 
 h2 {
-	font-family: $rubikbold;
+	font-family: $rubikregular;
 	font-size: 1.25em;
 	color: $black;
-	margin-bottom: 1.25em;
-	text-align: center;
+	margin: 1em auto 1.25em;
 
 	@media (max-width: 991px) {
 	    font-size: 1.75em;

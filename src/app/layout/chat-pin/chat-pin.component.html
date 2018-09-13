@@ -1,30 +1,45 @@
-<form autocomplete="off" novalidate id="ChatPin">
-  
-  <div class="form-group p-relative pin-code-wrap">  <!-- [ngClass]="{'has-error': (pin.invalid && pin.touched && pin.dirty) || isSubmitted}" -->
-    <label for="pin" class="d-block info-label">
-      <i class="fas fa-info-circle"></i>
-      Your Chat PIN will be use to verify your identity when making a transaction
-    </label>
-    <div class="form-control-chatpin p-relative">
-      <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" mask="9999" />
-      <div class="row row-xs">
-        <div class="col-3">
-          <input type="password" class="form-control pin-indicator text-center" tabindex="1" #togglePasswordMask />
-        </div>
-        <div class="col-3">
-          <input type="password" class="form-control pin-indicator text-center" tabindex="2" #togglePasswordMask />
-        </div>
-        <div class="col-3">
-          <input type="password" class="form-control pin-indicator text-center" tabindex="3" #togglePasswordMask />
-        </div>
-        <div class="col-3">
-          <input type="password" class="form-control pin-indicator text-center" tabindex="4" #togglePasswordMask />
+<ng-template #modalChatPIN let-c="close" let-d="dismiss">
+  <div class="modal-body">
+      
+    <form [formGroup]="chatPinForm" autocomplete="off" novalidate id="ChatPin">
+      <h2>We need to make sure it's you.</h2>
+      <div class="form-group p-relative pin-code-wrap">  <!-- [ngClass]="{'has-error': (pin.invalid && pin.touched && pin.dirty) || isSubmitted}" -->
+        <label for="pin" class="d-block info-label">
+          <i class="fas fa-info-circle"></i>
+          To continue you must enter your 4 digit nominated Chat PIN
+        </label>
+        <div class="form-control-chatpin p-relative">
+          <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" mask="9999" />
+          <toggle-password>
+            <div class="row row-xs">
+              <div class="col-3">
+                <input type="password" class="form-control pin-indicator text-center" formControlName="pin_one" tabindex="1" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 1 }" />
+              </div>
+              <div class="col-3">
+                <input type="password" class="form-control pin-indicator text-center" formControlName="pin_two" tabindex="2" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 2 }" />
+              </div>
+              <div class="col-3">
+                <input type="password" class="form-control pin-indicator text-center" formControlName="pin_three" tabindex="3" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 3 }" />
+              </div>
+              <div class="col-3">
+                <input type="password" class="form-control pin-indicator text-center" formControlName="pin_four" tabindex="4" #togglePasswordMask [ngClass]="{ 'pin_focused' : pin_focus == 4 }" />
+              </div>
+            </div>
+          </toggle-password>
+          <!-- <div *ngIf="(pin.invalid && pin.touched && pin.dirty) || isSubmitted">
+            <small *ngIf="pin.errors?.required" class="text-danger">Please nominate a PIN number</small>
+          </div> -->
         </div>
       </div>
-      <!-- <div *ngIf="(pin.invalid && pin.touched && pin.dirty) || isSubmitted">
-        <small *ngIf="pin.errors?.required" class="text-danger">Please nominate a PIN number</small>
-      </div> -->
-    </div>
+      <div class="form-group text-center">
+        <a href="#">Forgot your Chat PIN?</a>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block" (click)="c('Close click')">Confirm</button>
+      </div>
+
+    </form>
+  
   </div>
 
-</form>
+</ng-template>

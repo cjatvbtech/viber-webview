@@ -1,7 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../core/services/data.service';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import $ from 'jquery';
 
 @Component({
@@ -10,15 +12,17 @@ import $ from 'jquery';
   styleUrls: ['./chat-pin.component.scss']
 })
 export class ChatPinComponent implements OnInit, OnDestroy {
-  
+  modalRef: BsModalRef;
   chatPinForm: FormGroup;
   isSubmitted: boolean;
   disabledBtn: boolean;
   pin_focus: string | number;
+  @ViewChild('modalChatPIN') modalChatPIN: TemplateRef<any>;
   
   constructor(
     private _fB: FormBuilder,
-    private dS: DataService
+    private dS: DataService,
+    private modal: NgbModal
   ) {
     this.chatPinForm = this._fB.group({
       pin: ['', [Validators.required, Validators.minLength(4)]],
@@ -30,7 +34,10 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    
+    this.runJqueryCodes();
+  }
+
+  runJqueryCodes() {
     if (window.navigator.userAgent.match(/iPhone/i)) {
 			$('input.pin-filler').css({ left: '-9999px' });
     }
@@ -39,6 +46,15 @@ export class ChatPinComponent implements OnInit, OnDestroy {
 			let pinObj = $(this).closest('.form-group').find('.pin-filler');
 			pinObj.focus();
     });
+  }
+
+  execModal() {
+    this.modal.open(this.modalChatPIN, {centered: true, backdrop: 'static', keyboard: false, windowClass: 'body'})
+      .result.then((result) => {
+        console.log('It was ' + result);
+      }, (reason) => {
+        console.log(reason);
+      });
   }
 
   get pin() {
@@ -91,6 +107,9 @@ export class ChatPinComponent implements OnInit, OnDestroy {
     if (_cLength <= 4) {
       this.pin_focus = _cLength;
     }
+  }
+
+  confirm() {
   }
 
 }

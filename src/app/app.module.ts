@@ -9,8 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { ErrorPageComponent } from './layout/error-page/error-page.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { OneTimePasswordComponent } from './layout/one-time-password/one-time-password.component';
-import { ChatPinComponent } from './layout/chat-pin/chat-pin.component';
 import { TogglePasswordMaskComponent } from './layout/toggle-password-mask/toggle-password-mask.component';
 
 @NgModule({
@@ -18,9 +16,7 @@ import { TogglePasswordMaskComponent } from './layout/toggle-password-mask/toggl
     AppComponent,
     BaseComponent,
     NotFoundComponent,
-    ErrorPageComponent,
-    OneTimePasswordComponent,
-    ChatPinComponent
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

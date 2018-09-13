@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {PasswordValidator} from './validator/password-validator';
-import {EqualValidator} from './directive/equal-validator.directive';
-import {EmailValidationDirective} from './directive/email-validation.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PasswordValidator } from './validator/password-validator';
+import { ModalModule } from 'ngx-bootstrap';
+import { EqualValidator } from './directive/equal-validator.directive';
+import { EmailValidationDirective } from './directive/email-validation.directive';
+import { TogglePasswordMaskComponent } from '../layout/toggle-password-mask/toggle-password-mask.component';
+import { ChatPinComponent } from '../layout/chat-pin/chat-pin.component';
+import { OneTimePasswordComponent } from '../layout/one-time-password/one-time-password.component';
 // import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
@@ -12,11 +16,15 @@ import {EmailValidationDirective} from './directive/email-validation.directive';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalModule.forRoot(),
     NgbModule
   ],
   declarations: [
     EmailValidationDirective,
-    EqualValidator
+    EqualValidator,
+    ChatPinComponent,
+    OneTimePasswordComponent,
+    TogglePasswordMaskComponent
   ],
   exports: [
     CommonModule,
@@ -24,7 +32,9 @@ import {EmailValidationDirective} from './directive/email-validation.directive';
     ReactiveFormsModule,
     NgbModule,
     EmailValidationDirective,
-    EqualValidator
+    EqualValidator,
+    ChatPinComponent,
+    TogglePasswordMaskComponent
   ]
 })
 export class SharedModule { }
