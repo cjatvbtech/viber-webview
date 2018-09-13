@@ -35,6 +35,7 @@ import { OneTimePasswordComponent } from '../layout/one-time-password/one-time-p
     EqualValidator,
     ChatPinComponent,
     TogglePasswordMaskComponent
-  ]
+  ],
+  entryComponents: [ChatPinComponent]
 })
 export class SharedModule { }

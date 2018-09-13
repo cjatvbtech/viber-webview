@@ -34,6 +34,7 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.execModal();
     this.runJqueryCodes();
   }
 
