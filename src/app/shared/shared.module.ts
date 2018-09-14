@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PasswordValidator } from './validator/password-validator';
@@ -19,7 +20,8 @@ import { NgxMaskModule } from 'ngx-mask'
     ReactiveFormsModule,
     ModalModule.forRoot(),
     NgxMaskModule.forRoot(),
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     EmailValidationDirective,
