@@ -1,15 +1,15 @@
 <ng-template #modalChatPIN let-c="close" let-d="dismiss">
   <div class="modal-body">
       
-    <form [formGroup]="chatPinForm" autocomplete="off" novalidate id="ChatPin">
+    <form [formGroup]="chatPinForm" novalidate id="ChatPin" autocomplete="off">
       <h2>We need to make sure it's you.</h2>
-      <div class="form-group p-relative pin-code-wrap">  <!-- [ngClass]="{'has-error': (pin.invalid && pin.touched && pin.dirty) || isSubmitted}" -->
+      <div class="form-group p-relative pin-code-wrap">
         <label for="pin" class="d-block info-label">
           <i class="fas fa-info-circle"></i>
           To continue you must enter your 4 digit nominated Chat PIN
         </label>
         <div class="form-control-chatpin p-relative">
-          <input type="tel" class="float-away pin-filler no-blink-cursor" (keyup)="onKey($event)" mask="9999" />
+          <input type="tel" class="float-away pin-filler no-blink-cursor" name="chatpin" (keyup)="onKey($event)" mask="9999" formControlName="pin" autocomplete="off" />
           <toggle-password>
             <div class="row row-xs">
               <div class="col-3">

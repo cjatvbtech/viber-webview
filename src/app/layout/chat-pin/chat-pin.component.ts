@@ -25,7 +25,7 @@ export class ChatPinComponent implements OnInit, OnDestroy {
     private modal: NgbModal
   ) {
     this.chatPinForm = this._fB.group({
-      pin: ['', [Validators.required, Validators.minLength(4)]],
+      pin: ['', Validators.required],
       pin_one: [''],
       pin_two: [''],
       pin_three: [''],
@@ -34,8 +34,10 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.execModal();
-    this.runJqueryCodes();
+    setTimeout(() => {
+      this.execModal();
+      this.runJqueryCodes();
+    });
   }
 
   runJqueryCodes() {
@@ -104,7 +106,7 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   onFocus (event: any) {
     let _chars = event.target.value,
       _cLength = _chars.toString().length;
-
+      
     if (_cLength <= 4) {
       this.pin_focus = _cLength;
     }

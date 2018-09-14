@@ -9,6 +9,7 @@ import { EmailValidationDirective } from './directive/email-validation.directive
 import { TogglePasswordMaskComponent } from '../layout/toggle-password-mask/toggle-password-mask.component';
 import { ChatPinComponent } from '../layout/chat-pin/chat-pin.component';
 import { OneTimePasswordComponent } from '../layout/one-time-password/one-time-password.component';
+import { NgxMaskModule } from 'ngx-mask'
 // import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
@@ -17,6 +18,7 @@ import { OneTimePasswordComponent } from '../layout/one-time-password/one-time-p
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
+    NgxMaskModule.forRoot(),
     NgbModule
   ],
   declarations: [
@@ -34,6 +36,7 @@ import { OneTimePasswordComponent } from '../layout/one-time-password/one-time-p
     EmailValidationDirective,
     EqualValidator,
     ChatPinComponent,
+    NgxMaskModule,
     TogglePasswordMaskComponent
   ],
   entryComponents: [ChatPinComponent]
