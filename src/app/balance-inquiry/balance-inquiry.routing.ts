@@ -5,9 +5,9 @@ import { AccountComponent } from './account/account.component';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 
 export const routes: Routes = [
-  { path: '', component: SelectAccountComponent },
-  { path: 'account/:id', component: AccountComponent },
-  { path: 'transaction-detail/:id', component: TransactionDetailComponent }
+  { path: '', component: SelectAccountComponent, data: { state: 'select-account'} },
+  { path: 'account/:id', component: AccountComponent, data: { state: 'account'} },
+  { path: 'transaction-detail/:id', component: TransactionDetailComponent, data: { state: 'transaction-detail'} }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

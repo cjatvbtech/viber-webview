@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { BaseComponent } from './layout/base/base.component';
@@ -7,7 +8,7 @@ import { ErrorPageComponent } from "./layout/error-page/error-page.component";
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'not-found', component: NotFoundComponent },
+  { path: 'not-found', component: NotFoundComponent, data: { state: 'app-not-found'} },
   { path: 'error', component: ErrorPageComponent },
   { path: 'enrollment', loadChildren: './login/login.module#LoginModule' },
   { path: 'terms-and-conditions', loadChildren: './terms-and-conditions/terms-and-conditions.module#TermsAndConditionsModule' },
@@ -15,4 +16,9 @@ export const routes: Routes = [
   { path: '**', redirectTo: 'not-found'}
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule {}

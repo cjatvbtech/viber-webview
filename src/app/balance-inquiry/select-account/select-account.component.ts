@@ -2,11 +2,16 @@ import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, Componen
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChatPinComponent } from '../../layout/chat-pin/chat-pin.component';
+import { blockTransition } from '../../shared/animations/block.animations';
 
 @Component({
   selector: 'app-select-account',
   templateUrl: './select-account.component.html',
-  styleUrls: ['./select-account.component.scss']
+  styleUrls: ['./select-account.component.scss'],
+  animations: [ blockTransition ],
+  host: {
+    '[@blockTransition]' : ''
+  }
 })
 export class SelectAccountComponent implements OnInit, AfterViewInit {
 
@@ -22,7 +27,7 @@ export class SelectAccountComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('SIGN IN YOUR POB ACCOUNT');
+    this.title.setTitle('SELECT ACCOUNT');
     this.createComponent();
   }
 
