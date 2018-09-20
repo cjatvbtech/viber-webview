@@ -15,7 +15,7 @@ export class AccountComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.title.setTitle("CASA ACCOUNT");
   }
 
 }
