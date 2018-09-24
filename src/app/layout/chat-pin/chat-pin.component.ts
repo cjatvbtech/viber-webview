@@ -4,12 +4,17 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../core/services/data.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { blockTransition } from '../../shared/animations/block.animations';
 import $ from 'jquery';
 
 @Component({
   selector: 'app-chat-pin',
   templateUrl: './chat-pin.component.html',
-  styleUrls: ['./chat-pin.component.scss']
+  styleUrls: ['./chat-pin.component.scss'],
+  animations: [blockTransition],
+  host: {
+    '[@blockTransition]': ''
+  }
 })
 export class ChatPinComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;

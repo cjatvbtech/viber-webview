@@ -10,12 +10,12 @@ export const routerTransition = trigger('routerTransition', [
       group([
         query(':leave', [
           style({ transform: 'translateX(0%)' }),
-          animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', 
+          animate('320ms ease-out', // cubic-bezier(.75,-0.48,.26,1.52)
             style({ transform: 'translateX(-100%)' }))
         ]),
         query(':enter', [
           style({ transform: 'translateX(100%)' }),
-          animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', 
+          animate('320ms ease-out', // cubic-bezier(.75,-0.48,.26,1.52) 
             style({ transform: 'translateX(0%)' })),
         ]),
       ]),
