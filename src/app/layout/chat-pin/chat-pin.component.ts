@@ -11,10 +11,7 @@ import $ from 'jquery';
   selector: 'app-chat-pin',
   templateUrl: './chat-pin.component.html',
   styleUrls: ['./chat-pin.component.scss'],
-  animations: [blockTransition],
-  host: {
-    '[@blockTransition]': ''
-  }
+  animations: [ blockTransition ]
 })
 export class ChatPinComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;

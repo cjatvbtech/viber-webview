@@ -5,14 +5,14 @@ export const blockTransition = trigger('blockTransition', [
   transition(':enter', [
     query('.block', style({ opacity: 0 })),
     query('.block', stagger(300, [
-      style({ transform: 'translateY(100px)' }),
-      animate('1s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
+      style({ transform: 'translateY(75px)' }),
+      animate('500ms ease-out', style({transform: 'translateY(0px)', opacity: 1})), // cubic-bezier(.75,-0.48,.26,1.52)
     ])),
   ]),
   transition(':leave', [
     query('.block', stagger(300, [
       style({ transform: 'translateY(0px)', opacity: 1 }),
-      animate('1s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(100px)', opacity: 0})),
+      animate('250ms ease-in', style({transform: 'translateY(75px)', opacity: 0})), // cubic-bezier(.75,-0.48,.26,1.52)
     ])),        
   ])
 ]);
