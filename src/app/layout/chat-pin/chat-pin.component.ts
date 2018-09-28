@@ -3,7 +3,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../core/services/data.service';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { blockTransition } from '../../shared/animations/block.animations';
 import $ from 'jquery';
 
@@ -14,7 +14,6 @@ import $ from 'jquery';
   animations: [ blockTransition ]
 })
 export class ChatPinComponent implements OnInit, OnDestroy {
-  modalRef: BsModalRef;
   chatPinForm: FormGroup;
   isSubmitted: boolean;
   disabledBtn: boolean;
@@ -54,7 +53,7 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   }
 
   execModal() {
-    this.modal.open(this.modalChatPIN, {centered: true, backdrop: 'static', keyboard: false, windowClass: 'body'})
+    this.modal.open(this.modalChatPIN, {centered: true, backdrop: 'static', keyboard: false})
       .result.then((result) => {
         console.log('It was ' + result);
       }, (reason) => {
@@ -83,7 +82,8 @@ export class ChatPinComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
+    // this.modalRef.close()
+    // this.activeModal.dismiss();
   }
 
   onKey(event: any) {

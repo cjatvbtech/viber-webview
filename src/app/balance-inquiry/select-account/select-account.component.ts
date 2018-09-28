@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef, ComponentFactory } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, OnDestroy, ComponentFactory } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChatPinComponent } from '../../layout/chat-pin/chat-pin.component';
@@ -13,7 +13,7 @@ import { blockTransition } from '../../shared/animations/block.animations';
     '[@blockTransition]' : ''
   }
 })
-export class SelectAccountComponent implements OnInit, AfterViewInit {
+export class SelectAccountComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild(ChatPinComponent) chatpin:ChatPinComponent;
   @ViewChild('PINContainer', { read: ViewContainerRef }) entry: ViewContainerRef;
@@ -29,6 +29,12 @@ export class SelectAccountComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.title.setTitle('SELECT ACCOUNT');
     this.createComponent();
+  }
+
+  ngOnDestroy () {
+    if (this.entry) {
+      this.entry.detach();
+    }
   }
 
   ngAfterViewInit() {
